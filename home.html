@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/images/logo-katzkin2.svg" type="image/x-icon">
+    <style>
+        .loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+
+<body>
+    <div class="bg-white">
+        <!-- Navbar -->
+        <div class="h-80 my-bg flex flex-col">
+            <div class="flex justify-between custom-bg items-center p-4">
+                <div class="img mx-4 my-2.5">
+                    <img src='assets/images/logo-katzkin2.svg' width="100" height="100" alt="Katzkin Logo" />
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex flex-grow justify-end items-center gap-4">
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">CHOOSE YOUR DESIGN</div>
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">PRODUCT OPTIONS
+                        <div class="hidden show-dropdown text-white text-right custom-border">
+                            <p class="bg-orange-900">Material</p>
+                            <p>Heating & Cooling</p>
+                            <p>Seat Cover by Color</p>
+                            <p>Seat Cover by Make</p>
+                            <p>Gallery</p>
+                        </div>
+                    </div>
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">WHY KATZKIN
+                        <div class="hidden show-dropdown text-white text-right custom-border">
+                            <p class="bg-orange-900">Material</p>
+                            <p>Heating & Cooling</p>
+                            <p>Seat Cover by Color</p>
+                            <p>Seat Cover by Make</p>
+                            <p>Gallery</p>
+                        </div>
+                    </div>
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">LEARN MORE
+                        <div class="hidden show-dropdown text-white text-right custom-border">
+                            <p class="bg-orange-900">Material</p>
+                            <p>Heating & Cooling</p>
+                            <p>Seat Cover by Color</p>
+                            <p>Seat Cover by Make</p>
+                            <p>Gallery</p>
+                        </div>
+                    </div>
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">CONTACT</div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-80 z-50 hidden md:hidden">
+                <div class="flex flex-col items-center py-6">
+                    <a href="#" class="text-white text-2xl py-2">CHOOSE YOUR DESIGN</a>
+                    <a href="#" class="text-white text-2xl py-2">PRODUCT OPTIONS</a>
+                    <a href="#" class="text-white text-2xl py-2">WHY KATZKIN</a>
+                    <a href="#" class="text-white text-2xl py-2">LEARN MORE</a>
+                    <a href="#" class="text-white text-2xl py-2">CONTACT</a>
+                    <button id="close-mobile-menu" class="text-white mt-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div>
+            <p class="text-center text-orange-500 text-6xl mt-16 font-light">SELECT YOUR <span class="font-bold">VEHICLES</span></p>
+            <img class="mx-auto mt-10" src="assets/images/progress-bar-1.png" alt="Progress Bar">
+            <div class="flex mx-auto w-full md:w-1/2 mt-16 gap-4 mb-10">
+                <select id="year" name="car" class="border-2 border-orange-700 px-4 bg-gray-200">
+                    <option value="">Select Year</option>
+                    <!-- Add more options as needed -->
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                </select>
+                <select id="make" name="car" class="border-2 border-orange-700 px-4 bg-gray-200" style="display: none;">
+                    <option value="">Select Make</option>
+                    <!-- Add more options as needed -->
+                    <option value="AM_GENERAL">AM GENERAL</option>
+                    <option value="BMW">BMW</option>
+                    <option value="BUICK">BUICK</option>
+                    <option value="CADILLAC">CADILLAC</option>
+                    <option value="CHEVROLET">CHEVROLET</option>
+                    <option value="CHRYSLER">CHRYSLER</option>
+                    <option value="DODGE">DODGE</option>
+                    <option value="DODGE_RAM">DODGE RAM</option>
+                    <option value="FORD">FORD</option>
+                    <option value="HONDA">HONDA</option>
+                </select>
+                <select id="model" name="car" class="border-2 border-orange-700 px-4 bg-gray-200" style="display: none;">
+                    <option value="">Select Model</option>
+                    <!-- Add more options as needed -->
+                    <option value="AM_GENERAL">Model</option>
+                    <option value="BMW">BMW</option>
+                    <option value="BUICK">BUICK</option>
+                    <option value="CADILLAC">CADILLAC</option>
+                    <option value="CHEVROLET">CHEVROLET</option>
+                    <option value="CHRYSLER">CHRYSLER</option>
+                    <option value="DODGE">DODGE</option>
+                    <option value="DODGE_RAM">DODGE RAM</option>
+                    <option value="FORD">FORD</option>
+                    <option value="HONDA">HONDA</option>
+                </select>
+                <select id="trim" name="car" class="border-2 border-orange-700 px-4 bg-gray-200" style="display: none;">
+                    <option value="">Select Trim</option>
+                    <!-- Add more options as needed -->
+                    <option value="AM_GENERAL">Trim</option>
+                    <option value="BMW">BMW</option>
+                    <option value="BUICK">BUICK</option>
+                    <option value="CADILLAC">CADILLAC</option>
+                    <option value="CHEVROLET">CHEVROLET</option>
+                    <option value="CHRYSLER">CHRYSLER</option>
+                    <option value="DODGE">DODGE</option>
+                    <option value="DODGE_RAM">DODGE RAM</option>
+                    <option value="FORD">FORD</option>
+                    <option value="HONDA">HONDA</option>
+                </select>
+            </div>
+            <div class="h-10">
+                <button id="nextBtn" class="px-4 py-1.5 bg-orange-300 text-white rounded-lg hidden"
+                onclick="showsheet()">NEXT</button>
+            </div>
+            <div class="grid grid-cols-3 gap-10 p-10 hidden" id="seat">
+                
+                <div class="px-3 pt-3 border-orange-700">
+                    <img class=" " src="assets/images/simple_seat.jpg" alt="">
+                    <a class="text-center bg-orange-300 hover:bg-gray-300 block w-full" href="register.html">choose your design</a>
+                </div>
+                <div class="px-3 pt-3 border-orange-700">
+                    <img class=" " src="assets/images/simple_seat.jpg" alt="">
+                    <a class="text-center bg-orange-300 hover:bg-gray-300 block w-full" href="register.html">choose your design</a>
+                </div>
+                <div class="px-3 pt-3 border-orange-700">
+                    <img class=" " src="assets/images/simple_seat.jpg" alt="">
+                    <a class="text-center bg-orange-300 hover:bg-gray-300 block w-full" href="register.html">choose your design</a>
+                </div>
+                <div class="px-3 pt-3 border-orange-700">
+                    <img class=" " src="assets/images/simple_seat.jpg" alt="">
+                    <a class="text-center bg-orange-300 hover:bg-gray-300  block w-full" href="register.html">choose your design</a>
+                </div>
+                <div class="px-3 pt-3 border-orange-700">
+                    <img class=" " src="assets/images/simple_seat.jpg" alt="">
+                    <a class="text-center bg-orange-300 hover:bg-gray-300 block w-full" href="register.html">choose your design</a>
+                </div>
+                <div class="px-3 pt-3 border-orange-700">
+                    <img class=" " src="assets/images/simple_seat.jpg" alt="">
+                    <a class="text-center bg-orange-300 hover:bg-gray-300 block w-full" href="register.html">choose your design</a>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <!-- <div id="load" class="loader hidden"></div>
+        <button onclick="handleButtonClick()">click</button> -->
+        <!-- Additional Content -->
+        <div class="bg-slate-800 pb-32">
+            <div class="my-10 pt-1">
+                <p class="text-center text-orange-500 text-5xl mt-16 font-light">WHAT IS <span class="font-bold">KATZKIN ?</span></p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center gap-10">
+                <div class="w-full md:w-2/5">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/vIqbpLyjvlE?si=JpG79-CgGc7OB1dd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="w-full md:w-2/5 px-4 md:px-10">
+                    <p class="text-white"> Katzkin is the world leader in premium quality, tailor-made leather interiors. Every custom
+                        crafted interior we make is designed to blend the subtle character of each vehicle with the
+                        unique personality of you, the driver. We are committed to producing your interior with a
+                        special combination of unmatched workmanship and style, world-class engineering and
+                        extraordinary design capabilities.</p>
+                </div>
+            </div>
+            <div>
+                <p class="text-center text-orange-500 text-5xl mt-16 font-light">YOUR VEHICLE. YOUR WAY. IT'S EASY.</p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center gap-10 my-10 mx-8">
+                <div class="w-full md:w-2/5 flex-col text-center">
+                    <p class="text-7xl font-bold text-orange-700 pt-10">1</p>
+                    <div class="flex flex-col gap-2 px-4 md:px-10">
+                        <p class="text-2xl text-orange-500">CHOOSE YOUR DESIGN</p>
+                        <p class="text-white">Simply select your year, make, model, and trim, then choose your design from our extensive catalog.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-2/5 flex-col text-center">
+                    <p class="text-7xl font-bold text-orange-700 pt-10">2</p>
+                    <div class="flex flex-col gap-2 px-4 md:px-10">
+                        <p class="text-2xl text-orange-500 pt-1">SCHEDULE YOUR INSTALLATION</p>
+                        <p class="text-white">Once you’ve selected your design, schedule an appointment with one of our certified installers.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-2/5 flex-col text-center">
+                    <p class="text-7xl font-bold text-orange-700 pt-10">3</p>
+                    <div class="flex flex-col gap-2 px-4 md:px-10">
+                        <p class="text-2xl text-orange-500 pt-1">ENJOY YOUR NEW INTERIOR</p>
+                        <p class="text-white">Experience the luxury and comfort of your new Katzkin leather interior.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center text-white mt-28 text-2xl mb-20">
+                <p class="text-center border-2 py-2.5 px-5 bg-orange-500 border-emerald-500 mb-6 rounded-none">START NOW</p>
+            </div>
+            <div class="bg-gray-900 text-white">
+                <!-- Social Media Icons -->
+                <div class="flex flex-wrap justify-center gap-6 mb-10 pt-10 mt-10">
+                    <div class="w-16">
+                        <img src="assets/images/LeatherIcon_Facebook.webp" alt="Facebook">
+                    </div>
+                    <div class="w-16">
+                        <img src="assets/images/LeatherIcon_Instagram.webp" alt="Instagram">
+                    </div>
+                    <div class="w-16">
+                        <img src="assets/images/LeatherIcon_YouTube.webp" alt="YouTube">
+                    </div>
+                </div>
+               
+
+                <!-- Footer Links -->
+                <div class="flex flex-wrap justify-center gap-12 mb-10 px-4">
+                    <!-- Popular Vehicles -->
+                    <div class="flex flex-col gap-4 text-orange-500 list-none font-normal text-sm">
+                        <li class="font-bold text-lg">POPULAR VEHICLES</li>
+                        <li class="border-t border-gray-500 my-2"></li>
+                        <li>FORD F-150 SEAT COVERS</li>
+                        <li>JEEP WRANGLER SEAT COVERS</li>
+                        <li>TOYOTA TACOMA SEAT COVERS</li>
+                        <li>CHEVY SILVERADO SEAT COVERS</li>
+                        <li>RAM 1500 SEAT COVERS</li>
+                        <li>FORD MUSTANG SEAT COVERS</li>
+                        <li>FORD F-250 SUPERDUTY SEAT COVERS</li>
+                        <li>RAM 2500 SEAT COVERS</li>
+                        <li>GMC SIERRA SEAT COVERS</li>
+                        <li>TOYOTA TUNDRA SEAT COVERS</li>
+                    </div>
+            
+                    <!-- Katzkin Products -->
+                    <div class="flex flex-col gap-4 text-orange-500 list-none font-normal text-sm">
+                        <li class="font-bold text-lg">KATZKIN PRODUCTS</li>
+                        <li class="border-t border-gray-500 my-2"></li>
+                        <li>PRODUCT OPTIONS</li>
+                        <li>REVIEWS</li>
+                        <li>GALLERY</li>
+                        <li>KATZKIN VS SEAT COVERS</li>
+                        <li>HEATED AND VENTILATED SEATS</li>
+                        <li>WHAT YOU DRIVE</li>
+                        <li>FORD F-250 SUPERDUTY SEAT COVERS</li>
+                        <li>RAM 2500 SEAT COVERS</li>
+                    </div>
+            
+                    <!-- About Katzkin -->
+                    <div class="flex flex-col gap-4 text-orange-500 list-none font-normal text-sm">
+                        <li class="font-bold text-lg">ABOUT KATZKIN</li>
+                        <li class="border-t border-gray-500 my-2"></li>
+                        <li>FAQS</li>
+                        <li>PRIVACY POLICY</li>
+                        <li>FACEBOOK GIVEAWAY RULES</li>
+                        <li>SPONSORSHIP AGREEMENT</li>
+                        <li>LOCATIONS</li>
+                        <li>TEAM AND CONDITIONS</li>
+                        <li>CONTACT</li>
+                        <li>RESTYLERS</li>
+                    </div>
+                </div>
+            
+                <!-- Contact Info -->
+                <div class="flex justify-center text-orange-700 pb-16 pt-12 px-4">
+                    <p class="text-center text-sm sm:text-base md:text-lg lg:text-xl">
+                        6868 W. Acco Street, Montebello, CA 90640 | 1-888-KATZKIN (528-9546)<br>
+                        Copyright © 2024 Katzkin Leather, Inc
+                    </p>
+                </div>
+            
+                <!-- Footer Logo -->
+                <div class="flex justify-center text-orange-700 pb-16 px-4">
+                    <img src="assets/images/footer-logo.webp" alt="Katzkin Footer Logo" class="w-24 sm:w-32 md:w-40 lg:w-48">
+                </div>
+            </div>
+            
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var yearSelect = document.getElementById('year');
+                var makeSelect = document.getElementById('make');
+                var modelSelect = document.getElementById('model');
+                var trimSelect = document.getElementById('trim');
+        
+                function toggleDropdowns() {
+                    // Show/hide the "Select Make" dropdown based on year selection
+                    
+                    if (yearSelect.value) {
+                        makeSelect.style.display = 'inline';  // Show the "Select Make" dropdown
+                    } else {
+                        makeSelect.style.display = 'none';    // Hide the "Select Make" dropdown
+                        modelSelect.style.display = 'none';   // Hide the "Select Model" dropdown
+                        trimSelect.style.display = 'none';    // Hide the "Trim" dropdown
+                        modelSelect.value = '';                // Reset the "Select Model" dropdown value
+                        trimSelect.value = '';                 // Reset the "Trim" dropdown value
+                        return; // Exit early if year is not selected
+                    }
+                    
+                    // Show/hide the "Select Model" dropdown based on make selection
+                    if (makeSelect.value) {
+                        modelSelect.style.display = 'inline';  // Show the "Select Model" dropdown
+
+                    } else {
+                        modelSelect.style.display = 'none';    // Hide the "Select Model" dropdown
+                        trimSelect.style.display = 'none';    // Hide the "Trim" dropdown
+                        trimSelect.value = '';    
+                    // Reset the "Trim" dropdown value
+                        return; // Exit early if make is not selected
+                    }
+        
+                    // Show/hide the "Trim" dropdown based on model selection
+                    if (modelSelect.value) {
+                        trimSelect.style.display = 'inline';  // Show the "Trim" dropdown
+
+
+                    } else {
+                        trimSelect.style.display = 'none';    // Hide the "Trim" dropdown
+                        trimSelect.value = '';                 // Reset the "Trim" dropdown value
+                    }
+                    if (trimSelect.value){
+                        document.getElementById('nextBtn').classList.remove('hidden');
+                    }
+                    else{
+                        document.getElementById('nextBtn').classList.add('hidden');
+
+                    }
+                }
+        
+                yearSelect.addEventListener('change', function() {
+                    toggleDropdowns();
+                });
+        
+                makeSelect.addEventListener('change', function() {
+                    toggleDropdowns();
+                });
+        
+                modelSelect.addEventListener('change', function() {
+                    toggleDropdowns();
+                });
+                trimSelect.addEventListener('change', function() {
+                    toggleDropdowns();
+                });
+        
+                // Initial check
+                toggleDropdowns();
+            });
+
+            function showsheet(){
+                document.getElementById('seat').classList.remove('hidden');
+            }
+            function handleButtonClick() {
+    var loader = document.getElementById('load');
+    loader.classList.remove('hidden'); // Show the loader
+
+    setTimeout(function() {
+        window.location.href = 'index.html'; // Replace with your target URL
+    }, 3000);
+}
+
+        </script>
+
+    </div>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        document.getElementById('close-mobile-menu').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+    </script>
+</body>
+
+</html>

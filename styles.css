@@ -1,0 +1,37 @@
+.my-bg{
+    background: url("assets/images/main\ image.webp");
+    background-repeat: no-repeat;
+    background-size: cover ;
+    height: 500px;
+}
+.mn-bg{
+    background: url("assets/images/contect.jpg");
+    background-repeat: no-repeat;
+    background-size: cover ;
+    height: 600px;
+}
+.custom-bg{
+    background-color: rgba(0, 0, 0, 0.212);
+}
+
+.hover-dropdown:hover .show-dropdown{
+
+    display: block;
+    position: absolute;
+
+}
+
+
+.custom-border{
+    border-left: 10px solid transparent;
+}
+
+
+.download-icon:hover{
+
+ border-color:white;
+}
+
+.download-icon:hover i, .download-icon:hover p{
+    color: white;
+}

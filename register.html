@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/images/logo-katzkin2.svg" type="image/x-icon">
+    <style>
+        .loader {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .invalid-feedback {
+            color: red;
+            font-size: 0.875rem;
+        }
+        /* Add this CSS to your stylesheet */
+/* Add this CSS to your stylesheet */
+.bg-image {
+    background-image: url('assets/imag'); /* Replace with your image path */
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center center; /* Center the image horizontally and vertically */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+     /* Optional: keeps the image fixed while scrolling */
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="bg-white">
+        <!-- Navbar -->
+        <div class="h-80 my-bg flex flex-col">
+            <div class="flex justify-between custom-bg items-center p-4 ">
+                <div class="img mx-4 my-2.5">
+                    <img src='assets/images/logo-katzkin2.svg' width="100" height="100" alt="Katzkin Logo" />
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex flex-grow justify-end items-center gap-4">
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">CHOOSE YOUR DESIGN</div>
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">PRODUCT OPTIONS
+                        <div class="hidden show-dropdown text-white text-right custom-border">
+                            <p class="bg-orange-900">Material</p>
+                            <p>Heating & Cooling</p>
+                            <p>Seat Cover by Color</p>
+                            <p>Seat Cover by Make</p>
+                            <p>Gallery</p>
+                        </div>
+                    </div>
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">WHY KATZKIN
+                        <div class="hidden show-dropdown text-white text-right custom-border">
+                            <p class="bg-orange-900">Material</p>
+                            <p>Heating & Cooling</p>
+                            <p>Seat Cover by Color</p>
+                            <p>Seat Cover by Make</p>
+                            <p>Gallery</p>
+                        </div>
+                    </div>
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">LEARN MORE
+                        <div class="hidden show-dropdown text-white text-right custom-border">
+                            <p class="bg-orange-900">Material</p>
+                            <p>Heating & Cooling</p>
+                            <p>Seat Cover by Color</p>
+                            <p>Seat Cover by Make</p>
+                            <p>Gallery</p>
+                        </div>
+                    </div>
+                    <div class="my-5 text-white hover:text-orange-500 font-bold text-sm hover-dropdown">CONTACT</div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-80 z-50 hidden md:hidden">
+                <div class="flex flex-col items-center py-6">
+                    <a href="#" class="text-white text-2xl py-2">CHOOSE YOUR DESIGN</a>
+                    <a href="#" class="text-white text-2xl py-2">PRODUCT OPTIONS</a>
+                    <a href="#" class="text-white text-2xl py-2">WHY KATZKIN</a>
+                    <a href="#" class="text-white text-2xl py-2">LEARN MORE</a>
+                    <a href="#" class="text-white text-2xl py-2">CONTACT</a>
+                    <button id="close-mobile-menu" class="text-white mt-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Postal Code Form -->
+        <div class="mt-10">
+            <div class="border-2 rounded-lg bg-gray-300 border-gray-500 p-6 w-[800px] h-[300px] mx-auto flex flex-col items-center">
+                <form id="postal-code-form" method="get" class="flex flex-col items-center">
+                    <label for="postal-code">Please Enter Your Zip Code:</label>
+                    <div class="flex flex-col items-center">
+                        <input id="postal-code" name="postal-code" class="border-2 border-black px-2 py-1 rounded-lg mb-6 mt-2" type="text" placeholder="Enter your postal code" required>
+                        <button id="submit-button" type="button" class="bg-blue-600 hover:bg-gray-500 px-2 py-1 border-4 rounded-lg text-white">Submit</button>
+                        <p id="feedback" class="invalid-feedback mt-2 hidden"></p>
+                        <div id="address" class="mt-4 hidden"></div>
+                        <!-- Hidden inputs to pass data -->
+                        <input type="hidden" id="hidden-postal-code" name="postal-code">
+                        <input type="hidden" id="hidden-address" name="address">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="bg-gray-900 text-white">
+            <!-- Social Media Icons -->
+            <div class="flex flex-wrap justify-center gap-6 mb-10 pt-10 mt-10">
+                <div class="w-16">
+                    <img src="assets/images/LeatherIcon_Facebook.webp" alt="Facebook">
+                </div>
+                <div class="w-16">
+                    <img src="assets/images/LeatherIcon_Instagram.webp" alt="Instagram">
+                </div>
+                <div class="w-16">
+                    <img src="assets/images/LeatherIcon_YouTube.webp" alt="YouTube">
+                </div>
+            </div>
+           
+
+            <!-- Footer Links -->
+            <div class="flex flex-wrap justify-center gap-12 mb-10 px-4">
+                <!-- Popular Vehicles -->
+                <div class="flex flex-col gap-4 text-orange-500 list-none font-normal text-sm">
+                    <li class="font-bold text-lg">POPULAR VEHICLES</li>
+                    <li class="border-t border-gray-500 my-2"></li>
+                    <li>FORD F-150 SEAT COVERS</li>
+                    <li>JEEP WRANGLER SEAT COVERS</li>
+                    <li>TOYOTA TACOMA SEAT COVERS</li>
+                    <li>CHEVY SILVERADO SEAT COVERS</li>
+                    <li>RAM 1500 SEAT COVERS</li>
+                    <li>FORD MUSTANG SEAT COVERS</li>
+                    <li>FORD F-250 SUPERDUTY SEAT COVERS</li>
+                    <li>RAM 2500 SEAT COVERS</li>
+                    <li>GMC SIERRA SEAT COVERS</li>
+                    <li>TOYOTA TUNDRA SEAT COVERS</li>
+                </div>
+        
+                <!-- Katzkin Products -->
+                <div class="flex flex-col gap-4 text-orange-500 list-none font-normal text-sm">
+                    <li class="font-bold text-lg">KATZKIN PRODUCTS</li>
+                    <li class="border-t border-gray-500 my-2"></li>
+                    <li>PRODUCT OPTIONS</li>
+                    <li>REVIEWS</li>
+                    <li>GALLERY</li>
+                    <li>KATZKIN VS SEAT COVERS</li>
+                    <li>HEATED AND VENTILATED SEATS</li>
+                    <li>WHAT YOU DRIVE</li>
+                    <li>FORD F-250 SUPERDUTY SEAT COVERS</li>
+                    <li>RAM 2500 SEAT COVERS</li>
+                </div>
+        
+                <!-- About Katzkin -->
+                <div class="flex flex-col gap-4 text-orange-500 list-none font-normal text-sm">
+                    <li class="font-bold text-lg">ABOUT KATZKIN</li>
+                    <li class="border-t border-gray-500 my-2"></li>
+                    <li>FAQS</li>
+                    <li>PRIVACY POLICY</li>
+                    <li>FACEBOOK GIVEAWAY RULES</li>
+                    <li>SPONSORSHIP AGREEMENT</li>
+                    <li>LOCATIONS</li>
+                    <li>TEAM AND CONDITIONS</li>
+                    <li>CONTACT</li>
+                    <li>RESTYLERS</li>
+                </div>
+            </div>
+        
+            <!-- Contact Info -->
+            <div class="flex justify-center text-orange-700 pb-16 pt-12 px-4">
+                <p class="text-center text-sm sm:text-base md:text-lg lg:text-xl">
+                    6868 W. Acco Street, Montebello, CA 90640 | 1-888-KATZKIN (528-9546)<br>
+                    Copyright © 2024 Katzkin Leather, Inc
+                </p>
+            </div>
+        
+            <!-- Footer Logo -->
+            <div class="flex justify-center text-orange-700 pb-16 px-4">
+                <img src="assets/images/footer-logo.webp" alt="Katzkin Footer Logo" class="w-24 sm:w-32 md:w-40 lg:w-48">
+            </div>
+        </div>
+        <!-- ... existing footer code ... -->
+    </div>
+
+    <script>
+
+        const postalCodeRanges = {
+            'Andhra Pradesh': /^5[0-9]{5}$/,
+            'Arunachal Pradesh': /^9[0-9]{5}$/,
+            'Assam': /^7[0-9]{5}$/,
+            'Bihar': /^8[0-9]{5}$/,
+            'Chandigarh': /^1[0-9]{5}$/,
+            'Chhattisgarh': /^4[0-9]{5}$/,
+            'Dadra and Nagar Haveli': /^3[0-9]{5}$/,
+            'Daman and Diu': /^3[0-9]{5}$/,
+            'Goa': /^4[0-9]{5}$/,
+            'Gujarat': /^3[0-9]{5}$/,
+            'Haryana': /^1[0-9]{5}$/,
+            'Himachal Pradesh': /^1[0-9]{5}$/,
+            'Jammu and Kashmir': /^1[0-9]{5}$/,
+            'Jharkhand': /^8[0-9]{5}$/,
+            'Karnataka': /^5[0-9]{5}$/,
+            'Kerala': /^6[0-9]{5}$/,
+            'Lakshadweep': /^3[0-9]{5}$/,
+            'Ladakh': /^1[0-9]{5}$/,
+            'Madhya Pradesh': /^4[0-9]{5}$/,
+            'Maharashtra': /^4[0-9]{5}$/,
+            'Manipur': /^9[0-9]{5}$/,
+            'Meghalaya': /^7[0-9]{5}$/,
+            'Mizoram': /^8[0-9]{5}$/,
+            'Nagaland': /^9[0-9]{5}$/,
+            'Odisha': /^7[0-9]{5}$/,
+            'Puducherry': /^6[0-9]{5}$/,
+            'Punjab': /^1[0-9]{5}$/,
+            'Rajasthan': /^3[0-9]{5}$/,
+            'Sikkim': /^7[0-9]{5}$/,
+            'Tamil Nadu': /^6[0-3][0-9]{3}$/,
+            'Telangana': /^5[0-9]{5}$/,
+            'Tripura': /^8[0-9]{5}$/,
+            'Uttar Pradesh': /^2[0-9]{5}$/,
+            'Uttarakhand': /^2[0-9]{5}$/,
+            'West Bengal': /^7[0-9]{5}$/,
+        };
+    
+        // Example mapping of postal codes to cities
+        const postalCodeToCity = {
+            '600001': 'Chennai, Tamil Nadu',
+            '110001': 'New Delhi, Delhi',
+            '110002': 'New Delhi, Delhi',
+            '600002': 'Chennai, Tamil Nadu',
+            '400001': 'Mumbai, Maharashtra',
+            // Add more mappings as needed
+        };
+    
+        document.getElementById('submit-button').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default form submission
+            const postalCode = document.getElementById('postal-code').value.trim();
+            const feedbackElement = document.getElementById('feedback');
+            const addressElement = document.getElementById('address');
+            let valid = false;
+            let address = '';
+    
+            // Check if the postal code matches any state's regex
+            for (let state in postalCodeRanges) {
+                if (postalCodeRanges[state].test(postalCode)) {
+                    valid = true;
+                    break;
+                }
+            }
+    
+            if (valid) {
+                // Look up the city from the postal code
+                address = postalCodeToCity[postalCode] || 'Address not found for this postal code.';
+                addressElement.textContent = `Address: ${address}`;
+                addressElement.classList.remove('hidden');
+                feedbackElement.classList.add('hidden');
+    
+                // Set hidden inputs with postal code and address
+                document.getElementById('hidden-postal-code').value = postalCode;
+                document.getElementById('hidden-address').value = address;
+    
+                // Delay the redirection by 5 seconds (5000 milliseconds)
+                setTimeout(function() {
+                    window.location.href = `finalform.html?postal-code=${encodeURIComponent(postalCode)}&address=${encodeURIComponent(address)}`;
+                }, 5000);
+            } else {
+                // Show validation feedback
+                feedbackElement.textContent = 'Please enter a valid Indian postal code.';
+                feedbackElement.classList.remove('hidden');
+                addressElement.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
